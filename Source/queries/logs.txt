@@ -1,3 +1,0 @@
-ContainerLog
-| where LogEntry has "returned 0 results"
-| project LogEntry, TimeGenerated, Computer, Image 
