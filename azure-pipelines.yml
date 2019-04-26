@@ -14,7 +14,7 @@ variables:
   dockerRegistryServiceConnection: 'c9ed8987-b087-4d82-8a0e-da984e512a1e'
   imageRepository: 'hsachinrajsmarthotelbackend'
   containerRegistry: 'sh360acr.azurecr.io'
-  dockerfilePath: 'SmartHotel.Services.Bookings/Dockerfile'
+  dockerfilePath: 'SmartHotel.Services.Reviews/Dockerfile'
   tag: '$(Build.BuildId)'
   
   # Kubernetes Namespace
