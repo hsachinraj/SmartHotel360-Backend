@@ -3,9 +3,9 @@ WORKDIR /app
 EXPOSE 80
 
 FROM microsoft/aspnetcore-build:2.0.3 AS build
-WORKDIR /src
+WORKDIR .
 COPY . .
-WORKDIR /src/SmartHotel.Services.Bookings
+WORKDIR /SmartHotel.Services.Bookings
 RUN dotnet build -c Release -o /app
 
 FROM build AS publish
