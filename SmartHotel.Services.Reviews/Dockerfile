@@ -2,14 +2,14 @@ FROM openjdk:8-jre AS base
 WORKDIR /app
 
 FROM openjdk:8-jdk AS maven
-WORKDIR /src
+WORKDIR ./
 COPY . .
 RUN chmod +x ./mvnw
 RUN sed -i 's/\r$//' mvnw
 RUN ./mvnw install
 
 FROM maven as build
-WORKDIR /src
+WORKDIR ./
 RUN ./mvnw package
 
 FROM base as final
