@@ -63,7 +63,8 @@ stages:
           steps:
           - task: DownloadPipelineArtifact@1
             inputs:
-              artifactName: 'manifests'
+              downloadType: 'specific'
+              itemPattern: '*.yml'
               downloadPath: '$(System.ArtifactsDirectory)/manifests'
 
           - task: KubernetesManifest@0
@@ -86,3 +87,4 @@ stages:
                 $(imagePullSecret)
               containers: |
                 $(containerRegistry)/$(imageRepository):$(tag)
+
