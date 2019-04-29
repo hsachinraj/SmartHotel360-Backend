@@ -12,7 +12,7 @@ variables:
 
   # Container registry service connection established during pipeline creation - Docker Hub/ACR/...
   dockerRegistryServiceConnection: 'c9ed8987-b087-4d82-8a0e-da984e512a1e'
-  imageRepository: 'hsachinrajsmarthotelbackend'
+  imageRepository: 'smarthotel/reviews'
   containerRegistry: 'sh360acr.azurecr.io'
   dockerfilePath: 'SmartHotel.Services.Reviews/Dockerfile'
   tag: '$(Build.BuildId)'
@@ -56,7 +56,7 @@ stages:
     displayName: Deploy job
     pool:
       vmImage: $(vmImageName)
-    environment: 'hsachinrajSmartHotel360Backend-4030.smartthotel'
+    environment: 'AKS.smartthotel'
     strategy:
       runOnce:
         deploy:
