@@ -1,16 +1,16 @@
 apiVersion : apps/v1beta1
 kind: Deployment
 metadata:
-  name: hsachinrajsmarthotelbackend 
+  name: reviews 
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: hsachinrajsmarthotelbackend 
+        app: reviews 
     spec:
       containers:
-        - name: hsachinrajsmarthotelbackend 
-          image: sh360acr.azurecr.io/hsachinrajsmarthotelbackend 
+        - name: reviews 
+          image: sh360acr.azurecr.io/smarthotel/reviews 
           ports:
           - containerPort: 80
