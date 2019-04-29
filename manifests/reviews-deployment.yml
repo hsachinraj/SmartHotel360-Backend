@@ -11,6 +11,6 @@ spec:
     spec:
       containers:
         - name: reviews 
-          image: sh360acr.azurecr.io/smarthotel/reviews 
+          image: sh360acr.azurecr.io/reviews 
           ports:
           - containerPort: 80
