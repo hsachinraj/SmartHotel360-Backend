@@ -14,6 +14,6 @@ RUN ./mvnw package
 
 FROM base as final
 WORKDIR /app
-COPY --from=build /src/target/reviews-0.0.1-SNAPSHOT.jar .
+COPY --from=build /target/reviews-0.0.1-SNAPSHOT.jar .
 EXPOSE 8080
 ENTRYPOINT exec java -Djava.security.egd=file:/dev/./urandom -jar /app/reviews-0.0.1-SNAPSHOT.jar
