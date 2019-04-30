@@ -48,15 +48,54 @@ stages:
         artifactName: 'manifests'
         targetPath: 'manifests'
 
-- stage: Deploy
-  displayName: Deploy stage
+- stage: Dev
+  displayName: Deploy to Dev
   dependsOn: Build
   jobs:
   - deployment: Deploy
     displayName: Deploy job
     pool:
       vmImage: $(vmImageName)
-    environment: 'hsachinrajSmartHotel360Backend-4030.smartthotel'
+    environment: 'smarthotel360.smarthotel-reviews-build2019aks'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: DownloadPipelineArtifact@0
+            inputs:
+              artifactName: 'manifests'
+              targetPath: '$(System.ArtifactsDirectory)/manifests'
+
+          - task: KubernetesManifest@0
+            displayName: Create imagePullSecret
+            inputs:
+              action: createSecret
+              secretName: $(imagePullSecret)
+              namespace: $(k8sNamespace)
+              dockerRegistryEndpoint: $(dockerRegistryServiceConnection)
+              
+          - task: KubernetesManifest@0
+            displayName: Deploy to Kubernetes cluster
+            inputs:
+              action: deploy
+              namespace: $(k8sNamespace)
+              manifests: |
+                $(System.ArtifactsDirectory)/manifests/reviews*
+              imagePullSecrets: |
+                $(imagePullSecret)
+              containers: |
+                $(containerRegistry)/$(imageRepository):$(tag)
+
+
+- stage: QA
+  displayName: Deploy to QA
+  dependsOn: Dev
+  jobs:
+  - deployment: Deploy
+    displayName: Deploy job
+    pool:
+      vmImage: $(vmImageName)
+    environment: 'smarthotel360.smarthotel-reviews-build2019aks'
     strategy:
       runOnce:
         deploy:
