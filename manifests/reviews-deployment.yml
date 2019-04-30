@@ -11,6 +11,13 @@ spec:
     spec:
       containers:
         - name: reviews 
-          image: sh360acr.azurecr.io/reviews 
+          image: sh360acr.azurecr.io/reviews
+          env:
+          - name: sql_server_url
+            value:jdbc:postgresql://reviews-data:5432/reviewsdb
+          - name: sql_user_name
+            value: admin
+          - name: sql_user_password
+            value: Passw0rd!     
           ports:
           - containerPort: 80
