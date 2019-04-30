@@ -12,9 +12,9 @@ variables:
 
   # Container registry service connection established during pipeline creation - Docker Hub/ACR/...
   dockerRegistryServiceConnection: '2b25b0eb-22f4-4d50-972d-67573bf94f40'
-  imageRepository: 'smarthoteldiscounts'
+  imageRepository: 'suggestions'
   containerRegistry: 'sh360acr.azurecr.io'
-  dockerfilePath: '**/SmartHotel.Services.Discount/Dockerfile'
+  dockerfilePath: '**/SmartHotel.Services.suggestions/Dockerfile'
   tag: '$(Build.BuildId)'
   
   # Kubernetes Namespace
@@ -80,7 +80,7 @@ stages:
               action: deploy
               namespace: $(k8sNamespace)
               manifests: |
-                $(System.ArtifactsDirectory)/manifests/*
+                $(System.ArtifactsDirectory)/manifests/suggestions*
               imagePullSecrets: |
                 $(imagePullSecret)
               containers: |
