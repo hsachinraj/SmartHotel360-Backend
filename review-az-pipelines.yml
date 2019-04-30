@@ -18,7 +18,7 @@ variables:
   tag: '$(Build.BuildId)'
   
   # Kubernetes Namespace
-  k8sNamespace: 'smartthotel'
+  k8sNamespace: 'smarthotel-dev'
   imagePullSecret: 'sh360acrc921-auth'
 
   # Agent VM image name
@@ -61,7 +61,7 @@ stages:
       runOnce:
         deploy:
           steps:
-          - task: DownloadPipelineArtifact@1
+          - task: DownloadPipelineArtifact
             inputs:
               artifactName: 'manifests'
               targetPath: '$(System.ArtifactsDirectory)/manifests'
