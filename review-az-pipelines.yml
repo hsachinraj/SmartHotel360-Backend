@@ -56,7 +56,7 @@ stages:
     displayName: Deploy job
     pool:
       vmImage: $(vmImageName)
-    environment: 'hsachinrajSmartHotel360Backend-4030.smartthotel'
+    environment: 'SmartHotel360.smarthotel-reviews'
     strategy:
       runOnce:
         deploy:
