@@ -1,0 +1,16 @@
+apiVersion : apps/v1beta1
+kind: Deployment
+metadata:
+  name: suggestions 
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: suggestions 
+    spec:
+      containers:
+        - name: suggestions 
+          image: sh360acr.azurecr.io/suggestions 
+          ports:
+          - containerPort: 80
