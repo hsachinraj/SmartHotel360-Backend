@@ -18,7 +18,7 @@ variables:
   tag: '$(Build.BuildId)'
   
   # Kubernetes Namespace
-  k8sNamespace: 'smartthotel'
+  k8sNamespace: 'smarthotel-reviews'
   imagePullSecret: 'sh360acra041-auth'
 
   # Agent VM image name
