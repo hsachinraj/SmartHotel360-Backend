@@ -1,3 +1,4 @@
+[![Board Status](https://dev.azure.com/sachin77/2fdf9053-31ca-49c0-90e9-60566565a48b/6c069560-bddf-4d4d-93b1-acc06bdebd0b/_apis/work/boardbadge/1e74de87-744f-4316-bb83-fee7b78b7c86)](https://dev.azure.com/sachin77/2fdf9053-31ca-49c0-90e9-60566565a48b/_boards/board/t/6c069560-bddf-4d4d-93b1-acc06bdebd0b/Microsoft.RequirementCategory)
 # SmartHotel360
 During **Connect(); 2017** event this year we presented beautiful app demos using Xamarin and many features of Azure. For //build/ 2018's keynote, we updated some components of the back-end API code to support **Azure Kubernetes Service (AKS)**.
 
